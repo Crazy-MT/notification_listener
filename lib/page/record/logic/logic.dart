@@ -31,20 +31,26 @@ class NotificationLogic extends GetxController {
     if (result != null && result.isNotEmpty) {
       notificationPath = result.first.stdout.trim();
     }
-    print('MTMTMT BuildApkLogic.initDB ${notificationPath} ');
     database = await openDatabase("${notificationPath}com.apple.notificationcenter/db2/db");
     await appFromDB();
 
-    Timer.periodic(const Duration(milliseconds: 1000), (timer) async {
-      print('MTMTMT NotificationLogic.initDB ${timer} ');
+    await notificationFromDB();
+/*
+    Timer.periodic(const Duration(milliseconds: 60000), (timer) async {
       if(database != null) {
+        print('MTMTMT NotificationLogic.initDB start ${DateTime.now().millisecondsSinceEpoch} ');
         await notificationFromDB();
+        print('MTMTMT NotificationLogic.initDB end ${DateTime.now().millisecondsSinceEpoch} ');
       }
     });
+*/
   }
 
   notificationFromDB() async {
     recordList.value = await Record().getRecord(database, app.packageMap);
+    Future.delayed(const Duration(milliseconds: 10000), () async {
+      await notificationFromDB();
+    });
   }
 
   appFromDB() async {

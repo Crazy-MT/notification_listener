@@ -41,6 +41,7 @@ dependencies:
   sqflite:
   parse_plist:
   date_format:
+  crypto:
 
 dev_dependencies:
   flutter_test:

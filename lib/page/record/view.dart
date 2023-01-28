@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+// import 'package:notification_listener/page/record/logic/push_provider.dart';
 
 import '../../util/S.dart';
 import 'logic/logic.dart';
@@ -144,6 +145,8 @@ class NotificationPage extends StatelessWidget {
                   var style = S.textStyles.black;
                   if(logic.appLike[element.name] ?? false) {
                     style = S.textStyles.red;
+                    // print('MTMTMT NotificationPage.buildRecord ${element.toString()} ');
+                    // PushProvider().push(element.md5, "${element.deliveredDate}  ${element.name}   ${element.titl}   ${element.body}");
                   }
                   return Row(
                     children: [
@@ -154,10 +157,10 @@ class NotificationPage extends StatelessWidget {
                       SizedBox(
                           width: 100,
                           child:
-                              SelectableText(element.titl ?? "", style: style)),
+                              SelectableText((element.titl ?? "").toString(), style: style)),
                       SizedBox(
                           width: 200,
-                          child: SelectableText(element.body ?? "无",
+                          child: SelectableText((element.body.toString()) ?? "无",
                               style: style)),
                       SizedBox(
                           width: 200,
