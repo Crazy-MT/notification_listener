@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:notification_listener/page/record/logic/push_provider.dart';
+import 'package:notification_listener/page/record/logic/push_provider.dart';
 
 import '../../util/S.dart';
 import 'logic/logic.dart';
@@ -22,7 +22,10 @@ class NotificationPage extends StatelessWidget {
                 // Expanded(child: buildApp()),
                 Expanded(
                   flex: 1,
-                  child: buildAppInfo(),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 18, top: 18),
+                    child: buildAppInfo(),
+                  ),
                 ),
               ],
             ),
@@ -30,7 +33,10 @@ class NotificationPage extends StatelessWidget {
           SizedBox(height: 20,),
           Expanded(
             flex: 1,
-            child: buildRecord(),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 18, top: 18),
+              child: buildRecord(),
+            ),
           ),
         ],
       ),
@@ -132,7 +138,6 @@ class NotificationPage extends StatelessWidget {
               SizedBox(width: 100, child: Text('应用名', style: S.textStyles.title,)),
               SizedBox(width: 100, child: SelectableText('标题', style: S.textStyles.title)),
               SizedBox(width: 200, child: SelectableText('内容', style: S.textStyles.title)),
-              SizedBox(width: 20),
               SizedBox(width: 200, child: SelectableText('包名', style: S.textStyles.title)),
               SizedBox(width: 100, child: SelectableText('接收时间', style: S.textStyles.title))
             ],
@@ -166,7 +171,6 @@ class NotificationPage extends StatelessWidget {
                           width: 200,
                           child: SelectableText(element.packageId.toString(),
                               style: style)),
-                      const SizedBox(width: 20),
                       // SizedBox(
                       //     width: 100,
                       //     child: SelectableText(element.iden.toString(),

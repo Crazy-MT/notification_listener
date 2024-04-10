@@ -38,10 +38,12 @@ dependencies:
   shared_preferences: ^2.0.13
   dio: ^4.0.6
   get:
-  sqflite:
+  sqflite: ^2.3.2
   parse_plist:
   date_format:
   crypto:
+  file: ^7.0.0
+  pub_semver: ^2.1.4
 
 dev_dependencies:
   flutter_test:
